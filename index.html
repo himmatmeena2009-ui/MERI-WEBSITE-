@@ -37,13 +37,18 @@
     a:hover {
       color: orange;
     }
-     .pura {
+     .    .pura {
       text-decoration: line-through;
       color: gray;
+    }
+    .pura::before {
+      content: '✓ ';
+      color: green;
     }
     li {
       cursor: pointer;
     }
+  </style>
   </style>
 </head>
 <body>
