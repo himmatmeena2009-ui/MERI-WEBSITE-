@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>मेरा क्विज़</title>
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #2b6cb0;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 340px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .option {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #2b6cb0;
+      background-color: white;
+      border-radius: 8px;
+    }
+    .option.sahi {
+      background-color: #c6f6d5;
+    }
+    .option.galat {
+      background-color: #fed7d7;
+    }
+  </style>
+</head>
+<body>
+  <h1>मेरा क्विज़</h1>
+
+  <div class="card" id="card">
+    <p id="ginti"></p>
+    <h2 id="sawal"></h2>
+    <div id="vikalp"></div>
+    <p id="natija"></p>
+    <button id="agla" onclick="aglaSawal()" style="display:none">अगला सवाल</button>
+  </div>
+
+  <script>
+    let sawalList = [
+      { sawal: 'HTML का पूरा नाम क्या है?', vikalp: ['HyperText Markup Language', 'High Text Machine Language', 'Home Tool Markup Language'], sahi: 0 },
+      { sawal: 'वेबसाइट का रंग और डिज़ाइन किससे बदलते हैं?', vikalp: ['HTML', 'CSS', 'Git'], sahi: 1 },
+      { sawal: 'वेबसाइट को इंटरैक्टिव कौन बनाता है?', vikalp: ['JavaScript', 'Photoshop', 'Excel'], sahi: 0 },
+      { sawal: 'कोड ऑनलाइन रखने की जगह कौन सी है?', vikalp: ['Calculator', 'GitHub', 'Camera'], sahi: 1 }
+    ];
+
+    let abhi = 0;
+    let score = 0;
+    let jawabDiya = false;
+
+    function dikhao() {
+      jawabDiya = false;
+      let s = sawalList[abhi];
+
+      document.getElementById('ginti').innerText = 'सवाल ' + (abhi + 1) + ' / ' + sawalList.length;
+      document.getElementById('sawal').innerText = s.sawal;
+      document.getElementById('natija').innerText = '';
+      document.getElementById('agla').style.display = 'none';
+
+      let box = document.getElementById('vikalp');
+      box.innerHTML = '';
+
+      s.vikalp.forEach(function(v, i) {
+        let b = document.createElement('button');
+        b.className = 'option';
+        b.innerText = v;
+        b.addEventListener('click', function() {
+          chuno(i, b);
+        });
+        box.appendChild(b);
+      });
+    }
+
+    function chuno(i, b) {
+      if (jawabDiya) {
+        return;
+      }
+      jawabDiya = true;
+
+      let s = sawalList[abhi];
+      let sabhi = document.querySelectorAll('.option');
+
+      if (i === s.sahi) {
+        score = score + 1;
+        b.classList.add('sahi');
+        document.getElementById('natija').innerText = 'सही जवाब! ✓';
+      } else {
+        b.classList.add('galat');
+        sabhi[s.sahi].classList.add('sahi');
+        document.getElementById('natija').innerText = 'गलत जवाब ✗';
+      }
+
+      let agla = document.getElementById('agla');
+      agla.style.display = 'inline-block';
+
+      if (abhi === sawalList.length - 1) {
+        agla.innerText = 'नतीजा देखो';
+      } else {
+        agla.innerText = 'अगला सवाल';
+      }
+    }
+
+    function aglaSawal() {
+      abhi = abhi + 1;
+      if (abhi < sawalList.length) {
+        dikhao();
+      } else {
+        ant();
+      }
+    }
+
+    function ant() {
+      document.getElementById('card').innerHTML =
+        '<h2>क्विज़ खत्म! 🎉</h2>' +
+        '<p>आपका स्कोर: ' + score + ' / ' + sawalList.length + '</p>' +
+        '<button onclick="location.reload()">दोबारा खेलो</button>';
+    }
+
+    dikhao();
+  </script>
+</body>
+  </html>
