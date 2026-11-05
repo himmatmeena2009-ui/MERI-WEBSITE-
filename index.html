@@ -93,16 +93,20 @@ button:hover {
     radial-gradient(circle at 50% 30%, #0c4a6e66, transparent 55%);
 }
 
-.profile {
+  .profile {
   width: 130px;
   height: 130px;
   border-radius: 50%;
   border: 4px solid var(--blue);
-  background: var(--card);
-  display: grid;
-  place-items: center;
-  font-size: 55px;
+  overflow: hidden;
   margin-bottom: 22px;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero h1 {
@@ -249,7 +253,9 @@ footer span {
 </nav>
 
 <header class="hero" id="home">
-  <div class="profile">👨🏻‍💻</div>
+  <div class="profile">
+  <img src="github_profile_white_shirt_under_1mb-2.jpg" alt="Himmat Meena">
+  </div>
 
   <h1>नमस्ते, मैं <span>हिम्मत मीना</span> हूँ!</h1>
 
