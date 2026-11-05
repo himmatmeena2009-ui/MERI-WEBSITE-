@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>मेरी फोटो गैलरी</title>
+
   <style>
     body {
       background-color: #f0f4f8;
@@ -11,23 +13,60 @@
       text-align: center;
       padding: 20px;
     }
+
     h1 {
       color: #2b6cb0;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+
+    .slider {
       max-width: 500px;
-      margin: 20px auto;
+      margin: 25px auto;
+      position: relative;
     }
-    .grid img {
+
+    .slider img {
       width: 100%;
-      height: 160px;
+      height: 300px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
     }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px;
+    }
+
+    button {
+      background: #2b6cb0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dots {
+      margin: 12px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      margin: 5px;
+      border-radius: 50%;
+      background: #aaa;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #2b6cb0;
+    }
+
     a {
       color: #2b6cb0;
       font-weight: bold;
@@ -35,19 +74,77 @@
     }
   </style>
 </head>
-<body>
-  <h1>मेरी फोटो गैलरी</h1>
 
-  <div class="grid">
-    <img src="DSC_2065-2.JPG" loading="lazy" alt="फोटो 1">
-    <img src="DSC_2067-2.JPG" loading="lazy" alt="फोटो 2">
-    <img src="FB_IMG_1786619245072.jpg" loading="lazy" alt="फोटो 3">
-    <img src="FB_IMG_1786619249758.jpg" loading="lazy" alt="फोटो 4">
-    <img src="FB_IMG_1786619254931.jpg" loading="lazy" alt="फोटो 5">
-    <img src="IMG_20260926_173817.jpg" loading="lazy" alt="फोटो 6">
-    <img src="IMG_5103.JPG" loading="lazy" alt="फोटो 7">
+<body>
+
+  <h1>मेरी फोटो गैलरी 📸</h1>
+
+  <div class="slider">
+    <img id="slideImage" src="DSC_2065-2.JPG" alt="मेरी फोटो">
+    
+    <div class="controls">
+      <button onclick="previousPhoto()">❮ Previous</button>
+      <button onclick="nextPhoto()">Next ❯</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
   </div>
 
   <p><a href="index.html">← वापस मुख्य पेज</a></p>
+
+  <script>
+    const photos = [
+      "DSC_2065-2.JPG",
+      "DSC_2067-2.JPG",
+      "FB_IMG_1786619245072.jpg",
+      "FB_IMG_1786619249758.jpg",
+      "FB_IMG_1786619254931.jpg",
+      "IMG_20260926_173817.jpg",
+      "IMG_5103.JPG"
+    ];
+
+    let currentPhoto = 0;
+    const slideImage = document.getElementById("slideImage");
+    const dotsContainer = document.getElementById("dots");
+
+    function showPhoto() {
+      slideImage.src = photos[currentPhoto];
+
+      dotsContainer.innerHTML = "";
+
+      photos.forEach((photo, index) => {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+
+        if (index === currentPhoto) {
+          dot.classList.add("active");
+        }
+
+        dot.onclick = function() {
+          currentPhoto = index;
+          showPhoto();
+        };
+
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      showPhoto();
+    }
+
+    function previousPhoto() {
+      currentPhoto =
+        (currentPhoto - 1 + photos.length) % photos.length;
+      showPhoto();
+    }
+
+    showPhoto();
+
+    setInterval(nextPhoto, 3000);
+  </script>
+
 </body>
-</html>
+  </html>
+  
