@@ -1,120 +1,443 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>मेरा पहला पेज</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himmat Meena | My Portfolio</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    body {
-      background-color: #f0f4f8;
-      color: #333;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      margin: 0;
-      transition: 0.3s;
-    }
+:root {
+  --bg: #08111f;
+  --card: #111f33;
+  --text: #f1f5f9;
+  --blue: #38bdf8;
+  --muted: #a8b7ca;
+}
 
-    h1 {
-      color: #2b6cb0;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: .3s;
+}
 
-    h2 {
-      color: #444;
-    }
+body.light {
+  --bg: #f0f5fb;
+  --card: #ffffff;
+  --text: #172033;
+  --muted: #526176;
+}
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 15px #0002;
+}
 
-    .card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 350px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--blue);
+}
 
-    a {
-      color: #2b6cb0;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 8px;
+}
 
-    a:hover {
-      color: orange;
-    }
+nav a:hover {
+  color: var(--blue);
+}
 
-    .pura {
-      text-decoration: line-through;
-      color: gray;
-    }
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 17px;
+  background: var(--blue);
+  color: #06111f;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+  transition: .2s;
+}
 
-    .pura::before {
-      content: "✓ ";
-      color: green;
-    }
+button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
 
-    li {
-      cursor: pointer;
-      padding: 5px;
-    }
+.hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background:
+    radial-gradient(circle at 50% 30%, #0c4a6e66, transparent 55%);
+}
 
-    button {
-      background-color: #2b6cb0;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 16px;
-      margin: 4px;
-      cursor: pointer;
-    }
+.profile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid var(--blue);
+  background: var(--card);
+  display: grid;
+  place-items: center;
+  font-size: 55px;
+  margin-bottom: 22px;
+}
 
-    button:hover {
-      background-color: #1e4e8c;
-    }
+.hero h1 {
+  font-size: clamp(32px, 6vw, 55px);
+  margin-bottom: 10px;
+}
 
-    input {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      max-width: 100%;
-    }
+.hero h1 span {
+  color: var(--blue);
+}
 
-    /* Dark Mode */
+.hero p {
+  color: var(--muted);
+  max-width: 550px;
+}
 
-    body.dark {
-      background-color: #1a202c;
-      color: #e2e8f0;
-    }
+.section {
+  padding: 65px 8%;
+  text-align: center;
+}
 
-    body.dark .card {
-      background-color: #2d3748;
-    }
+.section h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
 
-    body.dark h1,
-    body.dark a {
-      color: #90cdf4;
-    }
+.section h2 span {
+  color: var(--blue);
+}
 
-    body.dark h2 {
-      color: #e2e8f0;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    /* Mobile Design */
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #38bdf822;
+  transition: .3s;
+  text-align: left;
+}
 
-    @media (max-width: 480px) {
-      body {
-        padding: 10px;
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+}
+
+.card h3 {
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  margin: 6px;
+  font-size: 16px;
+}
+
+.result {
+  color: var(--blue);
+  font-size: 20px;
+  margin-top: 12px;
+}
+
+#suchi li {
+  list-style: none;
+  background: var(--bg);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 0;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.pura {
+  text-decoration: line-through;
+  opacity: .55;
+}
+
+.pura::before {
+  content: "✓ ";
+  color: #22c55e;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: var(--card);
+  color: var(--muted);
+}
+
+footer span {
+  color: var(--blue);
+}
+
+@media(max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 5px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 45px 18px;
+  }
+
+  .hero {
+    min-height: 65vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">HM.</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button onclick="modeBadlo()" id="modeBtn">☀️ Light</button>
+</nav>
+
+<header class="hero" id="home">
+  <div class="profile">👨🏻‍💻</div>
+
+  <h1>नमस्ते, मैं <span>हिम्मत मीना</span> हूँ!</h1>
+
+  <p>
+    मैं एक वेब डेवलपर बनना सीख रहा हूँ।
+    मुझे नई चीजें बनाना और टेक्नोलॉजी सीखना पसंद है।
+  </p>
+
+  <br>
+  <a href="#projects">
+    <button>मेरे प्रोजेक्ट देखें 🚀</button>
+  </a>
+</header>
+
+<section class="section" id="about">
+  <h2>मेरे <span>बारे में</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>👋 परिचय</h3>
+      <p>नमस्ते! मेरा नाम हिम्मत मीना है।</p>
+    </div>
+
+    <div class="card">
+      <h3>🎯 मेरा लक्ष्य</h3>
+      <p>एक अच्छा वेब डेवलपर बनना।</p>
+    </div>
+
+    <div class="card">
+      <h3>🏏 मेरे शौक</h3>
+      <p>क्रिकेट खेलना और गाने सुनना।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2>मेरी <span>Skills</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🌐 HTML</h3>
+      <p>वेबसाइट का ढाँचा बनाना सीख रहा हूँ।</p>
+    </div>
+
+    <div class="card">
+      <h3>🎨 CSS</h3>
+      <p>वेबसाइट को सुंदर बनाना सीख रहा हूँ।</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ JavaScript</h3>
+      <p>वेबसाइट में काम करने वाले फीचर्स बनाना सीख रहा हूँ।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>मेरे <span>Projects</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🎯 मेरा क्विज़</h3>
+      <p>मेरा बनाया हुआ क्विज़ गेम।</p>
+      <a href="quiz.html"><button>खेलें</button></a>
+    </div>
+
+    <div class="card">
+      <h3>📸 फोटो गैलरी</h3>
+      <p>मेरी फोटो गैलरी देखें।</p>
+      <a href="gallery.html"><button>देखें</button></a>
+    </div>
+
+    <div class="card">
+      <h3>🔢 काउंटर</h3>
+      <p>अपनी गिनती बढ़ाएँ और घटाएँ।</p>
+      <button onclick="badhao()">+1</button>
+      <button onclick="ghatao()">-1</button>
+      <button onclick="resetCount()">Reset</button>
+      <p class="result" id="ginti">0</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>नमस्ते <span>बोलो 🙏</span></h2>
+
+  <div class="card" style="max-width:450px;margin:auto;text-align:center">
+    <input id="naam" type="text" placeholder="अपना नाम लिखें">
+    <br>
+    <button onclick="namaste()">नमस्ते बोलो</button>
+    <p class="result" id="jawab"></p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>मेरे <span>काम 📝</span></h2>
+
+  <div class="card" style="max-width:450px;margin:auto">
+    <input id="kaam" type="text" placeholder="नया काम लिखें">
+    <button onclick="kaamJodo()">जोड़ें +</button>
+    <ul id="suchi"></ul>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>मुझसे <span>जुड़ें</span></h2>
+  <div class="card" style="max-width:450px;margin:auto;text-align:center">
+    <h3>धन्यवाद! ❤️</h3>
+    <p>मेरी वेबसाइट देखने के लिए आपका धन्यवाद।</p>
+  </div>
+</section>
+
+<footer>
+  बनाया है <span>हिम्मत मीना</span> ने ❤️
+  <p>© 2026 My Portfolio</p>
+</footer>
+
+<script>
+"use strict";
+
+// Dark / Light Mode
+function modeBadlo() {
+  document.body.classList.toggle("light");
+
+  const light = document.body.classList.contains("light");
+
+  document.getElementById("modeBtn").innerText =
+    light ? "🌙 Dark" : "☀️ Light";
+}
+
+// Counter
+let count = 0;
+
+function updateCount() {
+  document.getElementById("ginti").innerText = count;
+}
+
+function badhao() {
+  count++;
+  updateCount();
+}
+
+function ghatao() {
+  count--;
+  updateCount();
+}
+
+function resetCount() {
+  count = 0;
+  updateCount();
+}
+
+// Greeting
+function namaste() {
+  const naam = document.getElementById("naam").value.trim();
+  const jawab = document.getElementById("jawab");
+
+  if (!naam) {
+    jawab.innerText = "पहले अपना नाम लिखें!";
+    return;
+  }
+
+  jawab.innerText = "🙏 नमस्ते " + naam + " 😎";
+}
+
+// To-do List
+function kaamJodo() {
+  const input = document.getElementById("kaam");
+  const kaam = input.value.trim();
+
+  if (!kaam) {
+    alert("पहले कोई काम लिखें!");
+    return;
+  }
+
+  const item = document.createElement("li");
+  item.innerText = kaam;
+
+  item.addEventListener("click", function() {
+    item.classList.toggle("pura");
+  });
+
+  document.getElementById("suchi").appendChild(item);
+  input.value = "";
+  input.focus();
+}
+</script>
 
 </body>
-</html>
+      </html>
+      
