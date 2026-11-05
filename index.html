@@ -49,12 +49,8 @@ body::before {
 }
 
 @keyframes glowingMove {
-  0% {
-    transform: translate(-4%, -3%) scale(1);
-  }
-  100% {
-    transform: translate(4%, 3%) scale(1.15);
-  }
+  0% { transform: translate(-4%, -3%) scale(1); }
+  100% { transform: translate(4%, 3%) scale(1.15); }
 }
 
 body.light {
@@ -68,6 +64,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   padding: 18px 8%;
   background: var(--card);
   position: sticky;
@@ -88,9 +86,7 @@ nav a {
   margin: 0 8px;
 }
 
-nav a:hover {
-  color: var(--blue);
-}
+nav a:hover { color: var(--blue); }
 
 button {
   border: none;
@@ -117,11 +113,10 @@ button:hover {
   align-items: center;
   text-align: center;
   padding: 60px 20px;
-  background:
-    radial-gradient(circle at 50% 30%, #0c4a6e66, transparent 55%);
+  background: radial-gradient(circle at 50% 30%, #0c4a6e66, transparent 55%);
 }
 
-  .profile {
+.profile {
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -142,9 +137,7 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.hero h1 span {
-  color: var(--blue);
-}
+.hero h1 span { color: var(--blue); }
 
 .hero p {
   color: var(--muted);
@@ -161,9 +154,7 @@ button:hover {
   margin-bottom: 25px;
 }
 
-.section h2 span {
-  color: var(--blue);
-}
+.section h2 span { color: var(--blue); }
 
 .grid {
   display: grid;
@@ -180,6 +171,7 @@ button:hover {
   border: 1px solid #38bdf822;
   transition: .3s;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .card:hover {
@@ -192,9 +184,7 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.card p {
-  color: var(--muted);
-}
+.card p { color: var(--muted); }
 
 input {
   padding: 12px;
@@ -210,6 +200,7 @@ input {
   color: var(--blue);
   font-size: 20px;
   margin-top: 12px;
+  overflow-wrap: anywhere;
 }
 
 #suchi li {
@@ -224,7 +215,536 @@ input {
 
 .pura {
   text-decoration: line-through;
+  opacity: .55;
+}
+
+.pura::before {
+  content: "✓ ";
+  color: #22c55e;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: var(--card);
+  color: var(--muted);
+}
+
+footer span { color: var(--blue); }
+
+.hero h1 span.animated-name {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff0080, #7928ca, #00c6ff, #00ff99, #ff0080);
+  background-size: 300% 100%;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: nameColor 4s linear infinite;
+}
+
+@keyframes nameColor {
+  from { background-position: 0% center; }
+  to { background-position: 300% center; }
+}
+
+.feature-card {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+}
+
+.feature-card input {
+  display: inline-block;
+}
+
+.clock-time {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--blue);
+  margin: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--bg);
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 6px;
+}
+
+.locked {
+  opacity: .4;
+  filter: grayscale(1);
+}
+
+#backToTop {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 20;
+  border-radius: 50%;
+  padding: 13px 16px;
+}
+
+@media(max-width:600px) {
+  nav { justify-content: center; }
+  nav a { font-size: 13px; margin: 4px; }
+  .section { padding: 45px 5%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">HM.</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button onclick="modeBadlo()" id="modeBtn">☀️ Light</button>
+</nav>
+
+<header class="hero" id="home">
+  <div class="profile">
+    <img src="github_profile_white_shirt_under_1mb-2.jpg" alt="Himmat Meena">
+  </div>
+
+  <h1>नमस्ते, मैं <span class="animated-name">हिम्मत मीना</span> हूँ!</h1>
+
+  <p>
+    मैं एक वेब डेवलपर बनना सीख रहा हूँ।
+    मुझे नई चीजें बनाना और टेक्नोलॉजी सीखना पसंद है।
+  </p>
+
+  <br>
+  <a href="#projects"><button>मेरे प्रोजेक्ट देखें 🚀</button></a>
+</header>
+
+<section class="section" id="about">
+  <h2>मेरे <span>बारे में</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>👋 परिचय</h3>
+      <p>नमस्ते! मेरा नाम हिम्मत मीना है।</p>
+    </div>
+    <div class="card">
+      <h3>🎯 मेरा लक्ष्य</h3>
+      <p>एक अच्छा वेब डेवलपर बनना।</p>
+    </div>
+    <div class="card">
+      <h3>🏏 मेरे शौक</h3>
+      <p>क्रिकेट खेलना और गाने सुनना।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2>मेरी <span>Skills</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🌐 HTML</h3>
+      <p>वेबसाइट का ढाँचा बनाना सीख रहा हूँ।</p>
+    </div>
+    <div class="card">
+      <h3>🎨 CSS</h3>
+      <p>वेबसाइट को सुंदर बनाना सीख रहा हूँ।</p>
+    </div>
+    <div class="card">
+      <h3>⚡ JavaScript</h3>
+      <p>वेबसाइट में काम करने वाले फीचर्स बनाना सीख रहा हूँ।</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>मेरे <span>Projects</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🎯 मेरा क्विज़</h3>
+      <p>मेरा बनाया हुआ क्विज़ गेम।</p>
+      <a href="quiz.html"><button>खेलें</button></a>
+    </div>
+
+    <div class="card">
+      <h3>📸 फोटो गैलरी</h3>
+      <p>मेरी फोटो गैलरी देखें।</p>
+      <a href="gallery.html"><button>देखें</button></a>
+    </div>
+
+    <div class="card">
+      <h3>🔢 काउंटर</h3>
+      <p>अपनी गिनती बढ़ाएँ और घटाएँ।</p>
+      <button onclick="badhao()">+1</button>
+      <button onclick="ghatao()">-1</button>
+      <button onclick="resetCount()">Reset</button>
+      <p class="result" id="ginti">0</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>नमस्ते <span>बोलो 🙏</span></h2>
+  <div class="card feature-card">
+    <input id="naam" type="text" placeholder="अपना नाम लिखें">
+    <br>
+    <button onclick="namaste()">नमस्ते बोलो</button>
+    <button onclick="voiceGreeting()">🔊 आवाज़ में बोलो</button>
+    <p class="result" id="jawab"></p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>मेरे <span>काम 📝</span></h2>
+  <div class="card feature-card">
+    <input id="kaam" type="text" placeholder="नया काम लिखें">
+    <button onclick="kaamJodo()">जोड़ें +</button>
+    <ul id="suchi"></ul>
+  </div>
+</section>
+
+<!-- Smart Assistant -->
+<section class="section" id="assistant">
+  <h2>🤖 Smart <span>Assistant</span></h2>
+  <div class="card feature-card">
+    <p>मुझसे वेबसाइट के बारे में कुछ पूछो!</p>
+    <input id="assistantInput" type="text" placeholder="जैसे: आपका नाम क्या है?">
+    <button onclick="askAssistant()">पूछें</button>
+    <p class="result" id="assistantAnswer"></p>
+  </div>
+</section>
+
+<!-- Achievements -->
+<section class="section" id="achievements">
+  <h2>🏅 मेरी <span>Achievements</span></h2>
+  <div class="card feature-card">
+    <p>वेबसाइट पर अलग-अलग काम करके बैज अनलॉक करो!</p>
+    <div id="badges"></div>
+  </div>
+</section>
+
+<!-- Mystery Box -->
+<section class="section">
+  <h2>🎁 Mystery <span>Box</span></h2>
+  <div class="card feature-card">
+    <p>बॉक्स खोलो और एक सरप्राइज़ पाओ!</p>
+    <button onclick="openMystery()">🎁 बॉक्स खोलें</button>
+    <p class="result" id="mysteryResult"></p>
+  </div>
+</section>
+
+<!-- World Clock -->
+<section class="section">
+  <h2>🌍 World <span>Clock</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🇮🇳 India</h3>
+      <p class="clock-time" id="indiaClock">--:--:--</p>
+      <p>Jaipur / New Delhi</p>
+    </div>
+    <div class="card">
+      <h3>🇬🇧 London</h3>
+      <p class="clock-time" id="londonClock">--:--:--</p>
+      <p>United Kingdom</p>
+    </div>
+    <div class="card">
+      <h3>🇯🇵 Tokyo</h3>
+      <p class="clock-time" id="tokyoClock">--:--:--</p>
+      <p>Japan</p>
+    </div>
+  </div>
+</section>
+
+<!-- Puzzle Game -->
+<section class="section">
+  <h2>🧩 Puzzle <span>Game</span></h2>
+  <div class="card feature-card">
+    <h3>पहेली का जवाब बताओ!</h3>
+    <p id="puzzleQuestion">ऐसी कौन सी चीज़ है जिसके पास चाबियाँ होती हैं, लेकिन ताला नहीं खोल सकती?</p>
+    <input id="puzzleAnswer" type="text" placeholder="अपना जवाब लिखें">
+    <br>
+    <button onclick="checkPuzzle()">जवाब जाँचें</button>
+    <button onclick="newPuzzle()">नई पहेली</button>
+    <p class="result" id="puzzleResult"></p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>मुझसे <span>जुड़ें</span></h2>
+  <div class="card feature-card">
+    <h3>धन्यवाद! ❤️</h3>
+    <p>मेरी वेबसाइट देखने के लिए आपका धन्यवाद।</p>
+  </div>
+</section>
+
+<footer>
+  बनाया है <span>हिम्मत मीना</span> ने ❤️
+  <p>© 2026 My Portfolio</p>
+</footer>
+
+<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">⬆️</button>
+
+<script>
+"use strict";
+
+// Dark / Light Mode
+function modeBadlo() {
+  document.body.classList.toggle("light");
+  const light = document.body.classList.contains("light");
+  document.getElementById("modeBtn").innerText =
+    light ? "🌙 Dark" : "☀️ Light";
+}
+
+// Counter
+let count = 0;
+
+function updateCount() {
+  document.getElementById("ginti").innerText = count;
+}
+
+function badhao() {
+  count++;
+  updateCount();
+  unlockAchievement("counter");
+}
+
+function ghatao() {
+  count--;
+  updateCount();
+}
+
+function resetCount() {
+  count = 0;
+  updateCount();
+}
+
+// Greeting
+function namaste() {
+  const naam = document.getElementById("naam").value.trim();
+  const jawab = document.getElementById("jawab");
+
+  if (!naam) {
+    jawab.innerText = "पहले अपना नाम लिखें!";
+    return;
+  }
+
+  jawab.innerText = "🙏 नमस्ते " + naam + " 😎";
+  unlockAchievement("greeting");
+}
+
+// Voice Greeting
+function voiceGreeting() {
+  const naam = document.getElementById("naam").value.trim();
+
+  if (!naam) {
+    document.getElementById("jawab").innerText = "पहले अपना नाम लिखें!";
+    return;
+  }
+
+  if (!("speechSynthesis" in window)) {
+    document.getElementById("jawab").innerText =
+      "तुम्हारे ब्राउज़र में Voice सुविधा उपलब्ध नहीं है।";
+    return;
+  }
+
+  const speech = new SpeechSynthesisUtterance("नमस्ते " + naam);
+  speech.lang = "hi-IN";
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(speech);
+  unlockAchievement("voice");
+}
+
+// To-do List
+function kaamJodo() {
+  const input = document.getElementById("kaam");
+  const kaam = input.value.trim();
+
+  if (!kaam) {
+    alert("पहले कोई काम लिखें!");
+    return;
+  }
+
+  const item = document.createElement("li");
+  item.innerText = kaam;
+
+  item.addEventListener("click", function() {
+    item.classList.toggle("pura");
+  });
+
+  document.getElementById("suchi").appendChild(item);
+  input.value = "";
+  input.focus();
+  unlockAchievement("todo");
+}
+
+// Smart Assistant
+function askAssistant() {
+  const question = document.getElementById("assistantInput").value
+    .trim().toLowerCase();
+
+  const answer = document.getElementById("assistantAnswer");
+
+  if (!question) {
+    answer.innerText = "पहले अपना सवाल लिखो!";
+    return;
+  }
+
+  if (question.includes("नाम") || question.includes("name")) {
+    answer.innerText = "मेरा नाम हिम्मत मीना है! 😎";
+  } else if (question.includes("कौन") || question.includes("who")) {
+    answer.innerText = "मैं हिम्मत की वेबसाइट का Smart Assistant हूँ।";
+  } else if (question.includes("स्किल") || question.includes("skill")) {
+    answer.innerText = "हिम्मत HTML, CSS और JavaScript सीख रहे हैं।";
+  } else if (question.includes("प्रोजेक्ट") || question.includes("project")) {
+    answer.innerText = "यहाँ Quiz Game, Photo Gallery और Counter हैं।";
+  } else if (question.includes("हैलो") || question.includes("hello")) {
+    answer.innerText = "नमस्ते! आपकी वेबसाइट पर स्वागत है। 👋";
+  } else if (question.includes("लक्ष्य") || question.includes("goal")) {
+    answer.innerText = "मेरा लक्ष्य एक अच्छा Web Developer बनना है।";
+  } else {
+    answer.innerText = "अच्छा सवाल है! इसके बारे में मुझे अभी जानकारी नहीं है।";
+  }
+
+  unlockAchievement("assistant");
+}
+
+// Achievement System
+const achievements = [
+  { id: "greeting", name: "🙏 पहली नमस्ते", description: "Namaste फीचर इस्तेमाल किया" },
+  { id: "counter", name: "🔢 Counter Master", description: "Counter बढ़ाया" },
+  { id: "todo", name: "📝 Planner", description: "एक काम जोड़ा" },
+  { id: "mystery", name: "🎁 Explorer", description: "Mystery Box खोला" },
+  { id: "puzzle", name: "🧩 Puzzle Master", description: "पहेली हल की" },
+  { id: "voice", name: "🎤 Voice Star", description: "Voice Greeting इस्तेमाल किया" },
+  { id: "assistant", name: "🤖 Assistant Friend", description: "Assistant से सवाल पूछा" }
+];
+
+let unlocked = [];
+
+function unlockAchievement(id) {
+  if (unlocked.includes(id)) return;
+
+  unlocked.push(id);
+  showAchievements();
+}
+
+function showAchievements() {
+  const container = document.getElementById("badges");
+  container.innerHTML = "";
+
+  achievements.forEach(function(item) {
+    const badge = document.createElement("div");
+    badge.className = "badge";
+
+    if (!unlocked.includes(item.id)) {
+      badge.classList.add("locked");
+      badge.innerText = "🔒 " + item.name + " — Locked";
+    } else {
+      badge.innerText = item.name + " — Unlocked 🏆";
+    }
+
+    container.appendChild(badge);
+  });
+}
+
+showAchievements();
+
+// Mystery Box
+const surprises = [
+  "तुम बहुत अच्छा कर रहे हो! 🌟",
+  "आज कुछ नया सीखो! 🚀",
+  "तुम्हारा अगला प्रोजेक्ट शानदार होगा! 💻",
+  "कभी हार मत मानना! 💪",
+  "तुममें सीखने की बहुत क्षमता है! 🏆"
+];
+
+function openMystery() {
+  const randomIndex = Math.floor(Math.random() * surprises.length);
+
+  document.getElementById("mysteryResult").innerText =
+    surprises[randomIndex];
+
+  unlockAchievement("mystery");
+}
+
+// World Clock
+function updateWorldClock() {
+  const now = new Date();
+
+  document.getElementById("indiaClock").innerText =
+    now.toLocaleTimeString("en-IN", {
+      timeZone: "Asia/Kolkata"
+    });
+
+  document.getElementById("londonClock").innerText =
+    now.toLocaleTimeString("en-GB", {
+      timeZone: "Europe/London"
+    });
+
+  document.getElementById("tokyoClock").innerText =
+    now.toLocaleTimeString("en-GB", {
+      timeZone: "Asia/Tokyo"
+    });
+}
+
+updateWorldClock();
+setInterval(updateWorldClock, 1000);
+
+// Puzzle Game
+const puzzles = [
+  {
+    question: "ऐसी कौन सी चीज़ है जिसके पास चाबियाँ होती हैं, लेकिन ताला नहीं खोल सकती?",
+    answer: "कीबोर्ड"
+  },
+  {
+    question: "ऐसी कौन सी चीज़ है जो पानी पीते ही मर जाती है?",
+    answer: "आग"
+  },
+  {
+    question: "ऐसी कौन सी चीज़ है जो जितनी बढ़ती है, उतना कम दिखाई देता है?",
+    answer: "अंधेरा"
+  }
+];
+
+let currentPuzzle = 0;
+
+function checkPuzzle() {
+  const answer = document.getElementById("puzzleAnswer")
+    .value.trim().toLowerCase();
+
+  const result = document.getElementById("puzzleResult");
+
+  if (!answer) {
+    result.innerText = "पहले जवाब लिखो!";
+    return;
+  }
+
+  const correctAnswer = puzzles[currentPuzzle].answer;
+
+  if (answer === correctAnswer) {
+    result.innerText = "सही जवाब! 🏆 शानदार!";
+    unlockAchievement("puzzle");
+  } else {
+    result.innerText = "कोशिश अच्छी थी! फिर से सोचो।";
+  }
+}
+
+function newPuzzle() {
+  currentPuzzle = (currentPuzzle + 1) % puzzles.length;
+
+  document.getElementById("puzzleQuestion").innerText =
+    puzzles[currentPuzzle].question;
+
+  document.getElementById("puzzleAnswer").value = "";
+  document.getElementById("puzzleResult").innerText = "";
+}
+</script>
 
 </body>
-      </html>
+  </html>
       
