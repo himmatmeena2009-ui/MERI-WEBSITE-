@@ -235,6 +235,30 @@ footer span {
     min-height: 65vh;
   }
 }
+.animated-name {
+  background: linear-gradient(
+    90deg,
+    #ff0080,
+    #7928ca,
+    #00c6ff,
+    #00ff99,
+    #ff0080
+  );
+  background-size: 300% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: nameColor 4s linear infinite;
+}
+
+@keyframes nameColor {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+  }
 </style>
 </head>
 
@@ -257,7 +281,7 @@ footer span {
   <img src="github_profile_white_shirt_under_1mb-2.jpg" alt="Himmat Meena">
   </div>
 
-  <h1>नमस्ते, मैं <span>हिम्मत मीना</span> हूँ!</h1>
+  <h1>नमस्ते, मैं <span class="animated-name">हिम्मत मीना</span> हूँ!</h1>
 
   <p>
     मैं एक वेब डेवलपर बनना सीख रहा हूँ।
