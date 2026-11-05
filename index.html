@@ -27,6 +27,33 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   transition: .3s;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 35%, #1749a8 0%, transparent 35%),
+    radial-gradient(circle at 75% 60%, #6425a5 0%, transparent 35%),
+    radial-gradient(circle at 50% 15%, #087b91 0%, transparent 35%);
+  filter: blur(65px);
+  opacity: .65;
+  animation: glowingMove 14s ease-in-out infinite alternate;
+}
+
+@keyframes glowingMove {
+  0% {
+    transform: translate(-4%, -3%) scale(1);
+  }
+  100% {
+    transform: translate(4%, 3%) scale(1.15);
+  }
 }
 
 body.light {
