@@ -214,28 +214,7 @@ footer {
 footer span {
   color: var(--blue);
 }
-
-@media(max-width: 600px) {
-  nav {
-    flex-direction: column;
-    gap: 12px;
-    padding: 15px 5px;
-  }
-
-  nav a {
-    margin: 5px;
-    font-size: 13px;
-  }
-
-  .section {
-    padding: 45px 18px;
-  }
-
-  .hero {
-    min-height: 65vh;
-  }
-}
-.animated-name {
+.hero h1 span.animated-name {
   background: linear-gradient(
     90deg,
     #ff0080,
@@ -244,18 +223,19 @@ footer span {
     #00ff99,
     #ff0080
   );
-  background-size: 300% auto;
-  color: transparent;
+  background-size: 300% 100%;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   animation: nameColor 4s linear infinite;
 }
 
 @keyframes nameColor {
-  0% {
+  from {
     background-position: 0% center;
   }
-  100% {
+  to {
     background-position: 300% center;
   }
   }
