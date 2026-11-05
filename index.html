@@ -66,10 +66,25 @@
       border-radius: 8px;
       font-size: 16px;
     } 
+      body.dark {
+      background-color: #1a202c;
+      color: #e2e8f0;
+    }
+    body.dark .card {
+      background-color: #2d3748;
+    }
+    body.dark h1,
+    body.dark a {
+      color: #90cdf4;
+    }
+    body.dark h2 {
+      color: #e2e8f0;
+       }
   </style>
   </style>
 </head>
 <body>
+    <button onclick="modeBadlo()">🌙 डार्क मोड</button>
   <h1>नमस्ते, मैं हिम्मत मीना हूँ</h1>
   <p>मैं वेब डेवलपर बनना सीख रहा हूँ।</p>
 
@@ -155,6 +170,9 @@
       document.getElementById('suchi').appendChild(item);
 
       document.getElementById('kaam').value = '';
+    }
+      function modeBadlo() {
+      document.body.classList.toggle('dark');
     }
   </script>
 </body>
