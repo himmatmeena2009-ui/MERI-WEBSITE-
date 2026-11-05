@@ -1,54 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>मेरा पहला पेज</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #f0f4f8;
+      color: #333;
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
+      margin: 0;
+      transition: 0.3s;
     }
+
     h1 {
       color: #2b6cb0;
     }
+
     h2 {
       color: #444;
     }
+
     ul {
       list-style: none;
       padding: 0;
     }
+
     .card {
       background-color: white;
       border-radius: 12px;
       padding: 20px;
       margin: 20px auto;
-      max-width: 300px;
+      max-width: 350px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
+
     a {
       color: #2b6cb0;
       text-decoration: none;
       font-weight: bold;
     }
+
     a:hover {
       color: orange;
     }
-     .    .pura {
+
+    .pura {
       text-decoration: line-through;
       color: gray;
     }
+
     .pura::before {
-      content: '✓ ';
+      content: "✓ ";
       color: green;
     }
+
     li {
       cursor: pointer;
+      padding: 5px;
     }
-     button {
+
+    button {
       background-color: #2b6cb0;
       color: white;
       border: none;
@@ -56,58 +75,91 @@
       border-radius: 8px;
       font-size: 16px;
       margin: 4px;
+      cursor: pointer;
     }
+
     button:hover {
       background-color: #1e4e8c;
     }
+
     input {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
-    } 
-      body.dark {
+      max-width: 100%;
+    }
+
+    /* Dark Mode */
+
+    body.dark {
       background-color: #1a202c;
       color: #e2e8f0;
     }
+
     body.dark .card {
       background-color: #2d3748;
     }
+
     body.dark h1,
     body.dark a {
       color: #90cdf4;
     }
+
     body.dark h2 {
-  </style>
+      color: #e2e8f0;
+    }
+
+    /* Mobile Design */
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
   </style>
 </head>
-  <div id="bada" onclick="band()">
-    <img id="badiFoto" src="" alt="बड़ी फोटो">
-  </div>
-  <body>
-    <button onclick="modeBadlo()">🌙 डार्क मोड</button>
-  <h1>नमस्ते,🙏🏻 मैं हिम्मत मीना हूँ</h1>
+
+<body>
+
+  <button onclick="modeBadlo()">🌙 डार्क मोड</button>
+
+  <h1>नमस्ते 🙏🏻 मैं हिम्मत मीना हूँ</h1>
+
   <p>मैं वेब डेवलपर बनना सीख रहा हूँ।</p>
 
   <div class="card">
     <h2>मेरे शौक</h2>
     <ul>
-      <li>क्रिकेट</li>
-      <li>गाने सुनना</li>
+      <li>क्रिकेट 🏏</li>
+      <li>गाने सुनना 🎵</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>मेरा लक्ष्य</h2>
-    <p>वेब डेवलपर बनना</p>
+    <p>वेब डेवलपर बनना 💻</p>
   </div>
 
   <h2>मेरे पसंदीदा लिंक</h2>
-<p><a href="quiz.html">मेरा क्विज़ खेलो</a></p>
-  <p><a href="gallery.html">मेरी फोटो गैलरी</a></p>
+
+  <p><a href="quiz.html">मेरा क्विज़ खेलो 🎯</a></p>
+  <p><a href="gallery.html">मेरी फोटो गैलरी 📸</a></p>
+
   <div class="card">
-    <h2>गिनती</h2>
+    <h2>गिनती 🔢</h2>
+
     <p id="ginti">0</p>
+
     <button onclick="badhao()">+1</button>
     <button onclick="ghatao()">-1</button>
     <button onclick="reset()">रीसेट</button>
@@ -115,80 +167,89 @@
 
   <div class="card">
     <h2>अपना नाम लिखो</h2>
-    <input type="text" id="naam" placeholder="यहाँ नाम लिखो">
+
+    <input type="text" id="naam"
+      placeholder="यहाँ नाम लिखो">
+
     <br><br>
+
     <button onclick="namaste()">नमस्ते बोलो</button>
+
     <p id="jawab"></p>
   </div>
 
   <div class="card">
-    <h2>मेरे काम</h2>
-    <input type="text" id="kaam" placeholder="नया काम लिखो">
+    <h2>मेरे काम 📝</h2>
+
+    <input type="text" id="kaam"
+      placeholder="नया काम लिखो">
+
     <button onclick="kaamJodo()">जोड़ो</button>
+
     <ul id="suchi"></ul>
   </div>
 
   <script>
     let count = 0;
 
+    // गिनती बढ़ाना
     function badhao() {
-      count = count + 1;
-      document.getElementById('ginti').innerText = count;
+      count++;
+      document.getElementById("ginti").innerText = count;
     }
 
+    // गिनती घटाना
     function ghatao() {
-      count = count - 1;
-      document.getElementById('ginti').innerText = count;
+      count--;
+      document.getElementById("ginti").innerText = count;
     }
 
+    // गिनती रीसेट
     function reset() {
       count = 0;
-      document.getElementById('ginti').innerText = count;
+      document.getElementById("ginti").innerText = count;
     }
 
+    // नमस्ते बोलना
     function namaste() {
-      let naam = document.getElementById('naam').value;
+      let naam = document.getElementById("naam").value.trim();
 
-      if (naam == '') {
-        document.getElementById('jawab').innerText = 'पहले अपना नाम लिखो!';
+      if (naam === "") {
+        document.getElementById("jawab").innerText =
+          "पहले अपना नाम लिखो!";
       } else {
-        document.getElementById('jawab').innerText = 🙏🏻'नमस्ते ' + naam + 😎🔥!';
+        document.getElementById("jawab").innerText =
+          "🙏🏻 नमस्ते " + naam + " 😎🔥!";
       }
     }
 
+    // नया काम जोड़ना
     function kaamJodo() {
-      let kaam = document.getElementById('kaam').value;
+      let kaam = document.getElementById("kaam").value.trim();
 
-      if (kaam == '') {
+      if (kaam === "") {
+        alert("पहले अपना काम लिखो!");
         return;
       }
 
-      let item = document.createElement('li');
+      let item = document.createElement("li");
+
       item.innerText = kaam;
-            item.addEventListener('click', function() {
-        item.classList.toggle('pura');
-      });
-      document.getElementById('suchi').appendChild(item);
 
-      document.getElementById('kaam').value = '';
+      item.addEventListener("click", function() {
+        item.classList.toggle("pura");
+      });
+
+      document.getElementById("suchi").appendChild(item);
+
+      document.getElementById("kaam").value = "";
     }
-      function modeBadlo() {
-      document.body.classList.toggle('dark');
+
+    // Dark Mode
+    function modeBadlo() {
+      document.body.classList.toggle("dark");
     }
   </script>
-  <script>
-    let sabhiFoto = document.querySelectorAll('.grid img');
 
-    sabhiFoto.forEach(function(foto) {
-      foto.addEventListener('click', function() {
-        document.getElementById('badiFoto').src = foto.src;
-        document.getElementById('bada').style.display = 'flex';
-      });
-    });
-
-    function band() {
-      document.getElementById('bada').style.display = 'none';
-    }
-  </script>
-  </body>
+</body>
 </html>
