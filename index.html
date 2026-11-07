@@ -1,750 +1,220 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="1GZScdFD1D8-ZtM74U8OCsLY2MHPh5sM1Uj39fqyMRI" />
-<title>Himmat Meena - Official Portfolio | Web Developer</title>
-
+<meta name="google-site-verification" content="1GZScdFD1D8-ZtM74U8OCsLY2MHPh5sM1Uj39fqyMRI">
+<title>Himmat Meena | Official Portfolio</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-:root {
-  --bg: #08111f;
-  --card: #111f33;
-  --text: #f1f5f9;
-  --blue: #38bdf8;
-  --muted: #a8b7ca;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  transition: .3s;
-  position: relative;
-  isolation: isolate;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 25% 35%, #1749a8 0%, transparent 35%),
-    radial-gradient(circle at 75% 60%, #6425a5 0%, transparent 35%),
-    radial-gradient(circle at 50% 15%, #087b91 0%, transparent 35%);
-  filter: blur(65px);
-  opacity: .65;
-  animation: glowingMove 14s ease-in-out infinite alternate;
-}
-
-@keyframes glowingMove {
-  0% { transform: translate(-4%, -3%) scale(1); }
-  100% { transform: translate(4%, 3%) scale(1.15); }
-}
-
-body.light {
-  --bg: #f0f5fb;
-  --card: #ffffff;
-  --text: #172033;
-  --muted: #526176;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 18px 8%;
-  background: var(--card);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 3px 15px #0002;
-}
-
-.logo {
-  font-size: 23px;
-  font-weight: bold;
-  color: var(--blue);
-}
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  margin: 0 8px;
-}
-
-nav a:hover { color: var(--blue); }
-
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 11px 17px;
-  background: var(--blue);
-  color: #06111f;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 5px;
-  transition: .2s;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
-}
-
-.hero {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 60px 20px;
-  background: radial-gradient(circle at 50% 30%, #0c4a6e66, transparent 55%);
-}
-
-.profile {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid var(--blue);
-  overflow: hidden;
-  margin-bottom: 22px;
-}
-
-.profile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero h1 {
-  font-size: clamp(32px, 6vw, 55px);
-  margin-bottom: 10px;
-}
-
-.hero h1 span { color: var(--blue); }
-
-.hero p {
-  color: var(--muted);
-  max-width: 550px;
-}
-
-.section {
-  padding: 65px 8%;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-
-.section h2 span { color: var(--blue); }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 16px;
-  border: 1px solid #38bdf822;
-  transition: .3s;
-  text-align: left;
-  overflow-wrap: anywhere;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--blue);
-}
-
-.card h3 {
-  color: var(--blue);
-  margin-bottom: 10px;
-}
-
-.card p { color: var(--muted); }
-
-input {
-  padding: 12px;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #94a3b8;
-  border-radius: 8px;
-  margin: 6px;
-  font-size: 16px;
-}
-
-.result {
-  color: var(--blue);
-  font-size: 20px;
-  margin-top: 12px;
-  overflow-wrap: anywhere;
-}
-
-#suchi li {
-  list-style: none;
-  background: var(--bg);
-  padding: 10px;
-  border-radius: 8px;
-  margin: 8px 0;
-  cursor: pointer;
-  overflow-wrap: anywhere;
-}
-
-.pura {
-  text-decoration: line-through;
-  opacity: .55;
-}
-
-.pura::before {
-  content: "✓ ";
-  color: #22c55e;
-}
-
-footer {
-  padding: 30px;
-  text-align: center;
-  background: var(--card);
-  color: var(--muted);
-}
-
-footer span { color: var(--blue); }
-
-.hero h1 span.animated-name {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff0080, #7928ca, #00c6ff, #00ff99, #ff0080);
-  background-size: 300% 100%;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: nameColor 4s linear infinite;
-}
-
-@keyframes nameColor {
-  from { background-position: 0% center; }
-  to { background-position: 300% center; }
-}
-
-.feature-card {
-  max-width: 650px;
-  margin: auto;
-  text-align: center;
-}
-
-.feature-card input {
-  display: inline-block;
-}
-
-.clock-time {
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--blue);
-  margin: 10px;
-}
-
-.badge {
-  display: inline-block;
-  background: var(--bg);
-  border: 1px solid var(--blue);
-  border-radius: 10px;
-  padding: 10px;
-  margin: 6px;
-}
-
-.locked {
-  opacity: .4;
-  filter: grayscale(1);
-}
-
-#backToTop {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  z-index: 20;
-  border-radius: 50%;
-  padding: 13px 16px;
-}
-
-@media(max-width:600px) {
-  nav { justify-content: center; }
-  nav a { font-size: 13px; margin: 4px; }
-  .section { padding: 45px 5%; }
-}
+:root{--bg:#10151d;--card:#1a2431;--text:#f4f7fb;--muted:#aab8c8;--blue:#38bdf8;--line:#2b3a4d}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.6}
+body:before{content:"";position:fixed;inset:-50%;z-index:-1;background:radial-gradient(circle at 20% 20%,#123b5c 0,transparent 35%),radial-gradient(circle at 80% 70%,#302052 0,transparent 35%);animation:glow 12s ease-in-out infinite alternate}
+@keyframes glow{to{transform:translate(5%,4%) scale(1.08)}}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:5;background:#10151deF;border-bottom:1px solid var(--line);padding:13px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:900;color:var(--blue)}
+.navlinks{display:flex;gap:15px;flex-wrap:wrap;font-size:14px}
+.navlinks a:hover{color:var(--blue)}
+button,.btn{border:0;border-radius:10px;padding:11px 16px;background:var(--blue);color:#07131c;font-weight:700;cursor:pointer;display:inline-block}
+button:hover,.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.container{width:min(1050px,90%);margin:auto}
+.hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:55px 0}
+.profile{width:155px;height:155px;border-radius:50%;object-fit:cover;border:4px solid var(--blue);box-shadow:0 0 35px #38bdf866}
+h1{font-size:clamp(34px,7vw,58px);margin:14px 0 5px}
+.rainbow{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6,#38bdf8);background-size:250%;color:transparent;background-clip:text;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:250%}}
+.subtitle{color:var(--muted);font-size:18px}
+section{padding:48px 0}
+.section-title{text-align:center;font-size:30px;margin:0 0 25px}
+.section-title span{color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
+.card{background:var(--card);border:1px solid var(--line);padding:21px;border-radius:17px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--blue)}
+.card h3{margin-top:0;color:var(--blue)}
+.muted{color:var(--muted)}
+input,select,textarea{width:100%;padding:12px;margin:7px 0 12px;border-radius:9px;border:1px solid var(--line);background:#0e1722;color:white}
+.action-row{display:flex;gap:9px;flex-wrap:wrap}
+.action-row>*{flex:1}
+.social-logo{width:46px;height:46px;display:block;margin:0 auto 10px}
+.social-card{text-align:center}
+.social-card .btn{margin-top:8px;min-width:130px}
+.feature-icon{font-size:34px}
+#todoList{padding-left:20px}
+#todoList li{margin:8px 0;overflow-wrap:anywhere}
+.badge{display:inline-block;padding:7px 11px;margin:5px;border-radius:20px;background:#243b50;color:#c7eaff;font-size:13px}
+.locked{opacity:.45}
+footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);color:var(--muted)}
+#topBtn{position:fixed;bottom:18px;right:18px;border-radius:50%;width:46px;height:46px;padding:0;font-size:20px}
+@media(max-width:600px){.navlinks{gap:10px}.hero{min-height:65vh}.section-title{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
-
 <body>
-
 <nav>
-  <div class="logo">HM.</div>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <a class="logo" href="#home">HM.</a>
+  <div class="navlinks">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#social">Social</a><a href="#contact">Contact</a>
   </div>
-  <button onclick="modeBadlo()" id="modeBtn">☀️ Light</button>
 </nav>
 
 <header class="hero" id="home">
-  <div class="profile">
-    <img src="github_profile_white_shirt_under_1mb-2.jpg" alt="Himmat Meena">
-  </div>
-
-  <h1>नमस्ते, मैं <span class="animated-name">हिम्मत मीना</span> हूँ!</h1>
-
-  <p>
-    मैं एक वेब डेवलपर बनना सीख रहा हूँ।
-    मुझे नई चीजें बनाना और टेक्नोलॉजी सीखना पसंद है।
-  </p>
-
-  <br>
-  <a href="#projects"><button>मेरे प्रोजेक्ट देखें 🚀</button></a>
+ <div class="container">
+  <img class="profile" src="github_profile_white_shirt_under_1mb-2.jpg" alt="Himmat Meena profile photo">
+  <h1 class="rainbow">Himmat Meena</h1>
+  <p class="subtitle">Student | Creative Learner | Future Web Developer</p>
+  <p class="muted">नमस्ते! Welcome to my personal website.</p>
+  <a class="btn" href="#projects">Explore My Projects</a>
+ </div>
 </header>
 
-<section class="section" id="about">
-  <h2>मेरे <span>बारे में</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>👋 परिचय</h3>
-      <p>नमस्ते! मेरा नाम हिम्मत मीना है।</p>
-    </div>
-    <div class="card">
-      <h3>🎯 मेरा लक्ष्य</h3>
-      <p>एक अच्छा वेब डेवलपर बनना।</p>
-    </div>
-    <div class="card">
-      <h3>🏏 मेरे शौक</h3>
-      <p>क्रिकेट खेलना और गाने सुनना।</p>
-    </div>
-  </div>
+<main class="container">
+<section id="about">
+ <h2 class="section-title">About <span>Me</span></h2>
+ <div class="grid">
+  <article class="card"><h3>👋 Introduction</h3><p>My name is Himmat Meena. I enjoy learning technology and creating useful things on the web.</p></article>
+  <article class="card"><h3>🎯 My Goal</h3><p>My goal is to improve my coding skills and build creative, helpful projects.</p></article>
+  <article class="card"><h3>✨ My Interests</h3><p>Learning, technology, creativity, problem-solving and exploring new ideas.</p></article>
+ </div>
 </section>
 
-<section class="section" id="skills">
-  <h2>मेरी <span>Skills</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🌐 HTML</h3>
-      <p>वेबसाइट का ढाँचा बनाना सीख रहा हूँ।</p>
-    </div>
-    <div class="card">
-      <h3>🎨 CSS</h3>
-      <p>वेबसाइट को सुंदर बनाना सीख रहा हूँ।</p>
-    </div>
-    <div class="card">
-      <h3>⚡ JavaScript</h3>
-      <p>वेबसाइट में काम करने वाले फीचर्स बनाना सीख रहा हूँ।</p>
-    </div>
-  </div>
+<section id="skills">
+ <h2 class="section-title">My <span>Skills</span></h2>
+ <div class="grid">
+  <article class="card"><h3>🌐 HTML</h3><p class="muted">Learning webpage structure and semantic elements.</p></article>
+  <article class="card"><h3>🎨 CSS</h3><p class="muted">Learning responsive layouts, colors and animations.</p></article>
+  <article class="card"><h3>⚡ JavaScript</h3><p class="muted">Learning interactivity and programming basics.</p></article>
+ </div>
 </section>
 
-<section class="section" id="projects">
-  <h2>मेरे <span>Projects</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🎯 मेरा क्विज़</h3>
-      <p>मेरा बनाया हुआ क्विज़ गेम।</p>
-      <a href="quiz.html"><button>खेलें</button></a>
-    </div>
-
-    <div class="card">
-      <h3>📸 फोटो गैलरी</h3>
-      <p>मेरी फोटो गैलरी देखें।</p>
-      <a href="gallery.html"><button>देखें</button></a>
-    </div>
-
-    <div class="card">
-      <h3>🔢 काउंटर</h3>
-      <p>अपनी गिनती बढ़ाएँ और घटाएँ।</p>
-      <button onclick="badhao()">+1</button>
-      <button onclick="ghatao()">-1</button>
-      <button onclick="resetCount()">Reset</button>
-      <p class="result" id="ginti">0</p>
-    </div>
-  </div>
+<section id="projects">
+ <h2 class="section-title">My <span>Projects</span></h2>
+ <div class="grid">
+  <article class="card"><div class="feature-icon">🧠</div><h3>Quiz Game</h3><p class="muted">Test your knowledge with a quiz.</p><a class="btn" href="quiz.html">Open Quiz</a></article>
+  <article class="card"><div class="feature-icon">🖼️</div><h3>Photo Gallery</h3><p class="muted">Explore my gallery page.</p><a class="btn" href="gallery.html">Open Gallery</a></article>
+  <article class="card"><div class="feature-icon">🧰</div><h3>All-in-One Tools</h3><p class="muted">Useful tools in one place.</p><a class="btn" href="tools.html">Open Tools</a></article>
+  <article class="card"><div class="feature-icon">📚</div><h3>Study Planner</h3><p class="muted">Organize study tasks and subjects.</p><a class="btn" href="planner.html">Open Planner</a></article>
+  <article class="card"><div class="feature-icon">📄</div><h3>Resume Builder</h3><p class="muted">Create a simple printable resume.</p><a class="btn" href="resume.html">Build Resume</a></article>
+  <article class="card"><div class="feature-icon">🗜️</div><h3>Image Compressor</h3><p class="muted">Compress images in your browser.</p><a class="btn" href="image-compressor.html">Compress Image</a></article>
+  <article class="card"><div class="feature-icon">➗</div><h3>Student Calculator</h3><p class="muted">Calculate percentages and averages.</p><a class="btn" href="student-calculator.html">Open Calculator</a></article>
+ </div>
 </section>
 
-<section class="section">
-  <h2>नमस्ते <span>बोलो 🙏</span></h2>
-  <div class="card feature-card">
-    <input id="naam" type="text" placeholder="अपना नाम लिखें">
-    <br>
-    <button onclick="namaste()">नमस्ते बोलो</button>
-    <button onclick="voiceGreeting()">🔊 आवाज़ में बोलो</button>
-    <p class="result" id="jawab"></p>
-  </div>
+<section id="namaste">
+ <h2 class="section-title">Say <span>Namaste</span> 🙏</h2>
+ <div class="card">
+  <p class="muted">अपना नाम लिखो और greeting देखो।</p>
+  <input id="visitorName" maxlength="35" placeholder="Enter your name">
+  <div class="action-row"><button onclick="sayNamaste()">Say Namaste</button><button onclick="speakNamaste()">🔊 Voice Greeting</button></div>
+  <h3 id="greetingOutput" aria-live="polite"></h3>
+ </div>
 </section>
 
-<section class="section">
-  <h2>मेरे <span>काम 📝</span></h2>
-  <div class="card feature-card">
-    <input id="kaam" type="text" placeholder="नया काम लिखें">
-    <button onclick="kaamJodo()">जोड़ें +</button>
-    <ul id="suchi"></ul>
-  </div>
+<section id="todo">
+ <h2 class="section-title">My <span>Todo List</span> ✅</h2>
+ <div class="card">
+  <input id="todoInput" maxlength="100" placeholder="Write a task...">
+  <button onclick="addTodo()">Add Task</button>
+  <ul id="todoList"></ul>
+ </div>
 </section>
 
-<!-- Smart Assistant -->
-<section class="section" id="assistant">
-  <h2>🤖 Smart <span>Assistant</span></h2>
-  <div class="card feature-card">
-    <p>मुझसे वेबसाइट के बारे में कुछ पूछो!</p>
-    <input id="assistantInput" type="text" placeholder="जैसे: आपका नाम क्या है?">
-    <button onclick="askAssistant()">पूछें</button>
-    <p class="result" id="assistantAnswer"></p>
-  </div>
+<section id="achievements">
+ <h2 class="section-title">My <span>Achievements</span> 🏆</h2>
+ <div class="card">
+  <p class="muted">Complete activities on this website to unlock badges.</p>
+  <div id="badges"></div>
+ </div>
 </section>
 
-<!-- Achievements -->
-<section class="section" id="achievements">
-  <h2>🏅 मेरी <span>Achievements</span></h2>
-  <div class="card feature-card">
-    <p>वेबसाइट पर अलग-अलग काम करके बैज अनलॉक करो!</p>
-    <div id="badges"></div>
-  </div>
+<section id="mystery">
+ <h2 class="section-title">Mystery <span>Box</span> 🎁</h2>
+ <div class="card" style="text-align:center">
+  <p class="muted">Open the box and discover a surprise message!</p>
+  <button onclick="openMystery()">🎁 Open Mystery Box</button>
+  <h3 id="mysteryResult" aria-live="polite"></h3>
+ </div>
 </section>
 
-<!-- Mystery Box -->
-<section class="section">
-  <h2>🎁 Mystery <span>Box</span></h2>
-  <div class="card feature-card">
-    <p>बॉक्स खोलो और एक सरप्राइज़ पाओ!</p>
-    <button onclick="openMystery()">🎁 बॉक्स खोलें</button>
-    <p class="result" id="mysteryResult"></p>
-  </div>
+<section id="social">
+ <h2 class="section-title">Follow <span>Me</span></h2>
+ <div class="grid">
+  <article class="card social-card">
+   <svg class="social-logo" viewBox="0 0 48 48" role="img" aria-label="Instagram logo">
+    <defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ffb347"/><stop offset=".5" stop-color="#e1306c"/><stop offset="1" stop-color="#833ab4"/></linearGradient></defs>
+    <rect x="4" y="4" width="40" height="40" rx="12" fill="none" stroke="url(#ig)" stroke-width="4"/>
+    <circle cx="24" cy="24" r="9" fill="none" stroke="url(#ig)" stroke-width="4"/>
+    <circle cx="36" cy="12" r="2.5" fill="#e1306c"/>
+   </svg>
+   <h3>Instagram</h3><p class="muted">Follow me on Instagram!</p>
+   <a class="btn" href="https://www.instagram.com/himmat_mina01?cplk=dHlsdnJidXlxM3R3" target="_blank" rel="noopener noreferrer">Follow Me</a>
+  </article>
+  <article class="card social-card">
+   <svg class="social-logo" viewBox="0 0 48 48" role="img" aria-label="Snapchat logo">
+    <path d="M24 4c-7 0-11 5-11 12v7c0 2-2 4-5 5l-3 1c0 2 4 3 7 3 1 4 5 7 12 7s11-3 12-7c3 0 7-1 7-3l-3-1c-3-1-5-3-5-5v-7C35 9 31 4 24 4z" fill="#ffeb00" stroke="#fff" stroke-width="1.5"/>
+   </svg>
+   <h3>Snapchat</h3><p class="muted">Add me on Snapchat!</p>
+   <a class="btn" href="https://www.snapchat.com/add/himmatt_00?share_id=aoFrrLIu7HA&amp;locale=hi-IN" target="_blank" rel="noopener noreferrer">Add Me</a>
+  </article>
+ </div>
 </section>
 
-<!-- World Clock -->
-<section class="section">
-  <h2>🌍 World <span>Clock</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>🇮🇳 India</h3>
-      <p class="clock-time" id="indiaClock">--:--:--</p>
-      <p>Jaipur / New Delhi</p>
-    </div>
-    <div class="card">
-      <h3>🇬🇧 London</h3>
-      <p class="clock-time" id="londonClock">--:--:--</p>
-      <p>United Kingdom</p>
-    </div>
-    <div class="card">
-      <h3>🇯🇵 Tokyo</h3>
-      <p class="clock-time" id="tokyoClock">--:--:--</p>
-      <p>Japan</p>
-    </div>
-  </div>
+<section id="contact">
+ <h2 class="section-title">Contact <span>Me</span></h2>
+ <div class="card" style="text-align:center">
+  <p class="muted">Thanks for visiting my website. You can connect with me using the social buttons above.</p>
+  <a class="btn" href="#social">Connect With Me</a>
+ </div>
 </section>
+</main>
 
-<!-- Puzzle Game -->
-<section class="section">
-  <h2>🧩 Puzzle <span>Game</span></h2>
-  <div class="card feature-card">
-    <h3>पहेली का जवाब बताओ!</h3>
-    <p id="puzzleQuestion">ऐसी कौन सी चीज़ है जिसके पास चाबियाँ होती हैं, लेकिन ताला नहीं खोल सकती?</p>
-    <input id="puzzleAnswer" type="text" placeholder="अपना जवाब लिखें">
-    <br>
-    <button onclick="checkPuzzle()">जवाब जाँचें</button>
-    <button onclick="newPuzzle()">नई पहेली</button>
-    <p class="result" id="puzzleResult"></p>
-  </div>
-</section>
-
-<section class="section" id="contact">
-  <h2>मुझसे <span>जुड़ें</span></h2>
-  <div class="card feature-card">
-    <h3>धन्यवाद! ❤️</h3>
-    <p>मेरी वेबसाइट देखने के लिए आपका धन्यवाद।</p>
-  </div>
-</section>
-
-<footer>
-  बनाया है <span>हिम्मत मीना</span> ने ❤️
-  <p>© 2026 My Portfolio</p>
-</footer>
-
-<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">⬆️</button>
+<footer>© <span id="year"></span> Himmat Meena · Made with HTML, CSS & JavaScript</footer>
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
 "use strict";
+document.getElementById("year").textContent=new Date().getFullYear();
 
-// Dark / Light Mode
-function modeBadlo() {
-  document.body.classList.toggle("light");
-  const light = document.body.classList.contains("light");
-  document.getElementById("modeBtn").innerText =
-    light ? "🌙 Dark" : "☀️ Light";
+function getBadges(){try{return JSON.parse(localStorage.getItem("hmBadges")||"[]")}catch(e){return[]}}
+function unlockBadge(id){
+ const list=getBadges();
+ if(!list.includes(id)){list.push(id);localStorage.setItem("hmBadges",JSON.stringify(list));showBadges()}
 }
-
-// Counter
-let count = 0;
-
-function updateCount() {
-  document.getElementById("ginti").innerText = count;
+const badgeNames={greeting:"🙏 Namaste Star",voice:"🔊 Voice Explorer",todo:"✅ Task Starter",mystery:"🎁 Mystery Explorer"};
+function showBadges(){
+ const list=getBadges();
+ document.getElementById("badges").innerHTML=Object.entries(badgeNames).map(([id,name])=>
+ `<span class="badge ${list.includes(id)?"":"locked"}">${list.includes(id)?"🏅 ":"🔒 "}${name}</span>`).join("");
 }
-
-function badhao() {
-  count++;
-  updateCount();
-  unlockAchievement("counter");
+function sayNamaste(){
+ const name=document.getElementById("visitorName").value.trim();
+ document.getElementById("greetingOutput").textContent=name?`नमस्ते ${name}! मेरी वेबसाइट पर आपका स्वागत है।`:"नमस्ते! मेरी वेबसाइट पर आपका स्वागत है।";
+ unlockBadge("greeting");
 }
-
-function ghatao() {
-  count--;
-  updateCount();
+function speakNamaste(){
+ const name=document.getElementById("visitorName").value.trim();
+ if(!("speechSynthesis" in window)){alert("Voice is not supported in this browser.");return}
+ speechSynthesis.cancel();
+ const msg=new SpeechSynthesisUtterance(name?`Namaste ${name}. Welcome to my website.`:"Namaste! Welcome to my website.");
+ msg.lang="hi-IN";speechSynthesis.speak(msg);unlockBadge("voice");
 }
-
-function resetCount() {
-  count = 0;
-  updateCount();
+function addTodo(){
+ const input=document.getElementById("todoInput"),value=input.value.trim();
+ if(!value)return;
+ const li=document.createElement("li"),span=document.createElement("span"),done=document.createElement("button"),del=document.createElement("button");
+ span.textContent=value+" ";done.textContent="Done";del.textContent="Delete";
+ done.onclick=()=>{span.style.textDecoration=span.style.textDecoration?"":"line-through";unlockBadge("todo")};
+ del.onclick=()=>li.remove();
+ li.append(span,done,document.createTextNode(" "),del);
+ document.getElementById("todoList").append(li);input.value="";unlockBadge("todo");
 }
-
-// Greeting
-function namaste() {
-  const naam = document.getElementById("naam").value.trim();
-  const jawab = document.getElementById("jawab");
-
-  if (!naam) {
-    jawab.innerText = "पहले अपना नाम लिखें!";
-    return;
-  }
-
-  jawab.innerText = "🙏 नमस्ते " + naam + " 😎";
-  unlockAchievement("greeting");
+const surprises=["Keep learning, keep growing! 🌱","Small steps make big progress. 🚀","Believe in your ability to learn. ⭐","Your next idea could be amazing! 💡"];
+function openMystery(){
+ document.getElementById("mysteryResult").textContent=surprises[Math.floor(Math.random()*surprises.length)];
+ unlockBadge("mystery");
 }
-
-// Voice Greeting
-function voiceGreeting() {
-  const naam = document.getElementById("naam").value.trim();
-
-  if (!naam) {
-    document.getElementById("jawab").innerText = "पहले अपना नाम लिखें!";
-    return;
-  }
-
-  if (!("speechSynthesis" in window)) {
-    document.getElementById("jawab").innerText =
-      "तुम्हारे ब्राउज़र में Voice सुविधा उपलब्ध नहीं है।";
-    return;
-  }
-
-  const speech = new SpeechSynthesisUtterance("नमस्ते " + naam);
-  speech.lang = "hi-IN";
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.speak(speech);
-  unlockAchievement("voice");
-}
-
-// To-do List
-function kaamJodo() {
-  const input = document.getElementById("kaam");
-  const kaam = input.value.trim();
-
-  if (!kaam) {
-    alert("पहले कोई काम लिखें!");
-    return;
-  }
-
-  const item = document.createElement("li");
-  item.innerText = kaam;
-
-  item.addEventListener("click", function() {
-    item.classList.toggle("pura");
-  });
-
-  document.getElementById("suchi").appendChild(item);
-  input.value = "";
-  input.focus();
-  unlockAchievement("todo");
-}
-
-// Smart Assistant
-function askAssistant() {
-  const question = document.getElementById("assistantInput").value
-    .trim().toLowerCase();
-
-  const answer = document.getElementById("assistantAnswer");
-
-  if (!question) {
-    answer.innerText = "पहले अपना सवाल लिखो!";
-    return;
-  }
-
-  if (question.includes("नाम") || question.includes("name")) {
-    answer.innerText = "मेरा नाम हिम्मत मीना है! 😎";
-  } else if (question.includes("कौन") || question.includes("who")) {
-    answer.innerText = "मैं हिम्मत की वेबसाइट का Smart Assistant हूँ।";
-  } else if (question.includes("स्किल") || question.includes("skill")) {
-    answer.innerText = "हिम्मत HTML, CSS और JavaScript सीख रहे हैं।";
-  } else if (question.includes("प्रोजेक्ट") || question.includes("project")) {
-    answer.innerText = "यहाँ Quiz Game, Photo Gallery और Counter हैं।";
-  } else if (question.includes("हैलो") || question.includes("hello")) {
-    answer.innerText = "नमस्ते! आपकी वेबसाइट पर स्वागत है। 👋";
-  } else if (question.includes("लक्ष्य") || question.includes("goal")) {
-    answer.innerText = "मेरा लक्ष्य एक अच्छा Web Developer बनना है।";
-  } else {
-    answer.innerText = "अच्छा सवाल है! इसके बारे में मुझे अभी जानकारी नहीं है।";
-  }
-
-  unlockAchievement("assistant");
-}
-
-// Achievement System
-const achievements = [
-  { id: "greeting", name: "🙏 पहली नमस्ते", description: "Namaste फीचर इस्तेमाल किया" },
-  { id: "counter", name: "🔢 Counter Master", description: "Counter बढ़ाया" },
-  { id: "todo", name: "📝 Planner", description: "एक काम जोड़ा" },
-  { id: "mystery", name: "🎁 Explorer", description: "Mystery Box खोला" },
-  { id: "puzzle", name: "🧩 Puzzle Master", description: "पहेली हल की" },
-  { id: "voice", name: "🎤 Voice Star", description: "Voice Greeting इस्तेमाल किया" },
-  { id: "assistant", name: "🤖 Assistant Friend", description: "Assistant से सवाल पूछा" }
-];
-
-let unlocked = [];
-
-function unlockAchievement(id) {
-  if (unlocked.includes(id)) return;
-
-  unlocked.push(id);
-  showAchievements();
-}
-
-function showAchievements() {
-  const container = document.getElementById("badges");
-  container.innerHTML = "";
-
-  achievements.forEach(function(item) {
-    const badge = document.createElement("div");
-    badge.className = "badge";
-
-    if (!unlocked.includes(item.id)) {
-      badge.classList.add("locked");
-      badge.innerText = "🔒 " + item.name + " — Locked";
-    } else {
-      badge.innerText = item.name + " — Unlocked 🏆";
-    }
-
-    container.appendChild(badge);
-  });
-}
-
-showAchievements();
-
-// Mystery Box
-const surprises = [
-  "तुम बहुत अच्छा कर रहे हो! 🌟",
-  "आज कुछ नया सीखो! 🚀",
-  "तुम्हारा अगला प्रोजेक्ट शानदार होगा! 💻",
-  "कभी हार मत मानना! 💪",
-  "तुममें सीखने की बहुत क्षमता है! 🏆"
-];
-
-function openMystery() {
-  const randomIndex = Math.floor(Math.random() * surprises.length);
-
-  document.getElementById("mysteryResult").innerText =
-    surprises[randomIndex];
-
-  unlockAchievement("mystery");
-}
-
-// World Clock
-function updateWorldClock() {
-  const now = new Date();
-
-  document.getElementById("indiaClock").innerText =
-    now.toLocaleTimeString("en-IN", {
-      timeZone: "Asia/Kolkata"
-    });
-
-  document.getElementById("londonClock").innerText =
-    now.toLocaleTimeString("en-GB", {
-      timeZone: "Europe/London"
-    });
-
-  document.getElementById("tokyoClock").innerText =
-    now.toLocaleTimeString("en-GB", {
-      timeZone: "Asia/Tokyo"
-    });
-}
-
-updateWorldClock();
-setInterval(updateWorldClock, 1000);
-
-// Puzzle Game
-const puzzles = [
-  {
-    question: "ऐसी कौन सी चीज़ है जिसके पास चाबियाँ होती हैं, लेकिन ताला नहीं खोल सकती?",
-    answer: "कीबोर्ड"
-  },
-  {
-    question: "ऐसी कौन सी चीज़ है जो पानी पीते ही मर जाती है?",
-    answer: "आग"
-  },
-  {
-    question: "ऐसी कौन सी चीज़ है जो जितनी बढ़ती है, उतना कम दिखाई देता है?",
-    answer: "अंधेरा"
-  }
-];
-
-let currentPuzzle = 0;
-
-function checkPuzzle() {
-  const answer = document.getElementById("puzzleAnswer")
-    .value.trim().toLowerCase();
-
-  const result = document.getElementById("puzzleResult");
-
-  if (!answer) {
-    result.innerText = "पहले जवाब लिखो!";
-    return;
-  }
-
-  const correctAnswer = puzzles[currentPuzzle].answer;
-
-  if (answer === correctAnswer) {
-    result.innerText = "सही जवाब! 🏆 शानदार!";
-    unlockAchievement("puzzle");
-  } else {
-    result.innerText = "कोशिश अच्छी थी! फिर से सोचो।";
-  }
-}
-
-function newPuzzle() {
-  currentPuzzle = (currentPuzzle + 1) % puzzles.length;
-
-  document.getElementById("puzzleQuestion").innerText =
-    puzzles[currentPuzzle].question;
-
-  document.getElementById("puzzleAnswer").value = "";
-  document.getElementById("puzzleResult").innerText = "";
-}
+showBadges();
 </script>
-
 </body>
-  </html>
-      
+                                                                                                                                  </html>
