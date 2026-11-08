@@ -4,58 +4,275 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="1GZScdFD1D8-ZtM74U8OCsLY2MHPh5sM1Uj39fqyMRI">
+<meta name="description" content="Himmat Meena's personal portfolio website.">
+<meta name="author" content="Himmat Meena">
 <title>Himmat Meena | Official Portfolio</title>
+
 <style>
-:root{--bg:#10151d;--card:#1a2431;--text:#f4f7fb;--muted:#aab8c8;--blue:#38bdf8;--line:#2b3a4d}
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.6}
-body:before{content:"";position:fixed;inset:-50%;z-index:-1;background:radial-gradient(circle at 20% 20%,#123b5c 0,transparent 35%),radial-gradient(circle at 80% 70%,#302052 0,transparent 35%);animation:glow 12s ease-in-out infinite alternate}
-@keyframes glow{to{transform:translate(5%,4%) scale(1.08)}}
-a{color:inherit;text-decoration:none}
-nav{position:sticky;top:0;z-index:5;background:#10151deF;border-bottom:1px solid var(--line);padding:13px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{font-size:23px;font-weight:900;color:var(--blue)}
-.navlinks{display:flex;gap:15px;flex-wrap:wrap;font-size:14px}
-.navlinks a:hover{color:var(--blue)}
-button,.btn{border:0;border-radius:10px;padding:11px 16px;background:var(--blue);color:#07131c;font-weight:700;cursor:pointer;display:inline-block}
-button:hover,.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
-.container{width:min(1050px,90%);margin:auto}
-.hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:55px 0}
-.profile{width:155px;height:155px;border-radius:50%;object-fit:cover;border:4px solid var(--blue);box-shadow:0 0 35px #38bdf866}
-h1{font-size:clamp(34px,7vw,58px);margin:14px 0 5px}
-.rainbow{background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6,#38bdf8);background-size:250%;color:transparent;background-clip:text;animation:shine 5s linear infinite}
-@keyframes shine{to{background-position:250%}}
-.subtitle{color:var(--muted);font-size:18px}
-section{padding:48px 0}
-.section-title{text-align:center;font-size:30px;margin:0 0 25px}
-.section-title span{color:var(--blue)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
-.card{background:var(--card);border:1px solid var(--line);padding:21px;border-radius:17px;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:var(--blue)}
-.card h3{margin-top:0;color:var(--blue)}
-.muted{color:var(--muted)}
-input,select,textarea{width:100%;padding:12px;margin:7px 0 12px;border-radius:9px;border:1px solid var(--line);background:#0e1722;color:white}
-.action-row{display:flex;gap:9px;flex-wrap:wrap}
-.action-row>*{flex:1}
-.social-logo{width:46px;height:46px;display:block;margin:0 auto 10px}
-.social-card{text-align:center}
-.social-card .btn{margin-top:8px;min-width:130px}
-.feature-icon{font-size:34px}
-#todoList{padding-left:20px}
-#todoList li{margin:8px 0;overflow-wrap:anywhere}
-.badge{display:inline-block;padding:7px 11px;margin:5px;border-radius:20px;background:#243b50;color:#c7eaff;font-size:13px}
-.locked{opacity:.45}
-footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);color:var(--muted)}
-#topBtn{position:fixed;bottom:18px;right:18px;border-radius:50%;width:46px;height:46px;padding:0;font-size:20px}
-@media(max-width:600px){.navlinks{gap:10px}.hero{min-height:65vh}.section-title{font-size:26px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+:root {
+  --bg:#10151d;
+  --card:#1a2431;
+  --text:#f4f7fb;
+  --muted:#aab8c8;
+  --blue:#38bdf8;
+  --line:#2b3a4d;
+}
+
+* {
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  line-height:1.6;
+}
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:-50%;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 20% 20%,#123b5c 0,transparent 35%),
+    radial-gradient(circle at 80% 70%,#302052 0,transparent 35%);
+  animation:glow 12s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  to { transform:translate(5%,4%) scale(1.08); }
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+nav {
+  position:sticky;
+  top:0;
+  z-index:5;
+  background:#10151def;
+  border-bottom:1px solid var(--line);
+  padding:13px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.logo {
+  font-size:23px;
+  font-weight:900;
+  color:var(--blue);
+}
+
+.navlinks {
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  font-size:14px;
+}
+
+.navlinks a:hover { color:var(--blue); }
+
+button,.btn {
+  border:0;
+  border-radius:10px;
+  padding:11px 16px;
+  background:var(--blue);
+  color:#07131c;
+  font-weight:700;
+  cursor:pointer;
+  display:inline-block;
+}
+
+button:hover,.btn:hover {
+  filter:brightness(1.12);
+  transform:translateY(-1px);
+}
+
+.container {
+  width:min(1050px,90%);
+  margin:auto;
+}
+
+.hero {
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:55px 0;
+}
+
+.profile {
+  width:155px;
+  height:155px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--blue);
+  box-shadow:0 0 35px #38bdf866;
+}
+
+h1 {
+  font-size:clamp(34px,7vw,58px);
+  margin:14px 0 5px;
+}
+
+.rainbow {
+  display:inline-block;
+  background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6,#38bdf8);
+  background-size:250%;
+  color:transparent;
+  background-clip:text;
+  animation:shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position:250%; }
+}
+
+.subtitle {
+  color:var(--muted);
+  font-size:18px;
+}
+
+section { padding:48px 0; }
+
+.section-title {
+  text-align:center;
+  font-size:30px;
+  margin:0 0 25px;
+}
+
+.section-title span { color:var(--blue); }
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:17px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:21px;
+  border-radius:17px;
+  transition:.2s;
+}
+
+.card:hover {
+  transform:translateY(-4px);
+  border-color:var(--blue);
+}
+
+.card h3 { margin-top:0; color:var(--blue); }
+
+.muted { color:var(--muted); }
+
+input,select,textarea {
+  width:100%;
+  padding:12px;
+  margin:7px 0 12px;
+  border-radius:9px;
+  border:1px solid var(--line);
+  background:#0e1722;
+  color:white;
+}
+
+.action-row {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.action-row>* { flex:1; }
+
+.social-logo {
+  width:46px;
+  height:46px;
+  display:block;
+  margin:0 auto 10px;
+}
+
+.social-card { text-align:center; }
+
+.social-card .btn {
+  margin-top:8px;
+  min-width:130px;
+}
+
+.feature-icon { font-size:34px; }
+
+#todoList { padding-left:20px; }
+
+#todoList li {
+  margin:8px 0;
+  overflow-wrap:anywhere;
+}
+
+.badge {
+  display:inline-block;
+  padding:7px 11px;
+  margin:5px;
+  border-radius:20px;
+  background:#243b50;
+  color:#c7eaff;
+  font-size:13px;
+}
+
+.locked { opacity:.45; }
+
+footer {
+  text-align:center;
+  padding:28px 10px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+#topBtn {
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  border-radius:50%;
+  width:46px;
+  height:46px;
+  padding:0;
+  font-size:20px;
+}
+
+@media(max-width:600px) {
+  .navlinks { gap:10px; }
+  .hero { min-height:65vh; }
+  .section-title { font-size:26px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation:none!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <nav>
   <a class="logo" href="#home">HM.</a>
   <div class="navlinks">
-    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
-    <a href="#projects">Projects</a><a href="#social">Social</a><a href="#contact">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#social">Social</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -70,34 +287,62 @@ footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);colo
 </header>
 
 <main class="container">
+
 <section id="about">
  <h2 class="section-title">About <span>Me</span></h2>
  <div class="grid">
-  <article class="card"><h3>👋 Introduction</h3><p>My name is Himmat Meena. I enjoy learning technology and creating useful things on the web.</p></article>
-  <article class="card"><h3>🎯 My Goal</h3><p>My goal is to improve my coding skills and build creative, helpful projects.</p></article>
-  <article class="card"><h3>✨ My Interests</h3><p>Learning, technology, creativity, problem-solving and exploring new ideas.</p></article>
+  <article class="card">
+   <h3>👋 Introduction</h3>
+   <p>My name is Himmat Meena. I enjoy learning technology and creating useful things on the web.</p>
+  </article>
+  <article class="card">
+   <h3>🎯 My Goal</h3>
+   <p>My goal is to improve my coding skills and build creative, helpful projects.</p>
+  </article>
+  <article class="card">
+   <h3>✨ My Interests</h3>
+   <p>Learning, technology, creativity, problem-solving and exploring new ideas.</p>
+  </article>
  </div>
 </section>
 
 <section id="skills">
  <h2 class="section-title">My <span>Skills</span></h2>
  <div class="grid">
-  <article class="card"><h3>🌐 HTML</h3><p class="muted">Learning webpage structure and semantic elements.</p></article>
-  <article class="card"><h3>🎨 CSS</h3><p class="muted">Learning responsive layouts, colors and animations.</p></article>
-  <article class="card"><h3>⚡ JavaScript</h3><p class="muted">Learning interactivity and programming basics.</p></article>
+  <article class="card">
+   <h3>🌐 HTML</h3>
+   <p class="muted">Learning webpage structure and semantic elements.</p>
+  </article>
+  <article class="card">
+   <h3>🎨 CSS</h3>
+   <p class="muted">Learning responsive layouts, colors and animations.</p>
+  </article>
+  <article class="card">
+   <h3>⚡ JavaScript</h3>
+   <p class="muted">Learning interactivity and programming basics.</p>
+  </article>
  </div>
 </section>
 
+<!-- Only two projects remain -->
 <section id="projects">
  <h2 class="section-title">My <span>Projects</span></h2>
  <div class="grid">
-  <article class="card"><div class="feature-icon">🧠</div><h3>Quiz Game</h3><p class="muted">Test your knowledge with a quiz.</p><a class="btn" href="quiz.html">Open Quiz</a></article>
-  <article class="card"><div class="feature-icon">🖼️</div><h3>Photo Gallery</h3><p class="muted">Explore my gallery page.</p><a class="btn" href="gallery.html">Open Gallery</a></article>
-  <article class="card"><div class="feature-icon">🧰</div><h3>All-in-One Tools</h3><p class="muted">Useful tools in one place.</p><a class="btn" href="tools.html">Open Tools</a></article>
-  <article class="card"><div class="feature-icon">📚</div><h3>Study Planner</h3><p class="muted">Organize study tasks and subjects.</p><a class="btn" href="planner.html">Open Planner</a></article>
-  <article class="card"><div class="feature-icon">📄</div><h3>Resume Builder</h3><p class="muted">Create a simple printable resume.</p><a class="btn" href="resume.html">Build Resume</a></article>
-  <article class="card"><div class="feature-icon">🗜️</div><h3>Image Compressor</h3><p class="muted">Compress images in your browser.</p><a class="btn" href="image-compressor.html">Compress Image</a></article>
-  <article class="card"><div class="feature-icon">➗</div><h3>Student Calculator</h3><p class="muted">Calculate percentages and averages.</p><a class="btn" href="student-calculator.html">Open Calculator</a></article>
+
+  <article class="card">
+   <div class="feature-icon">🧠</div>
+   <h3>Quiz Game</h3>
+   <p class="muted">Test your knowledge with a quiz.</p>
+   <a class="btn" href="quiz.html">Open Quiz</a>
+  </article>
+
+  <article class="card">
+   <div class="feature-icon">🖼️</div>
+   <h3>Photo Gallery</h3>
+   <p class="muted">Explore my gallery page.</p>
+   <a class="btn" href="gallery.html">Open Gallery</a>
+  </article>
+
  </div>
 </section>
 
@@ -106,7 +351,10 @@ footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);colo
  <div class="card">
   <p class="muted">अपना नाम लिखो और greeting देखो।</p>
   <input id="visitorName" maxlength="35" placeholder="Enter your name">
-  <div class="action-row"><button onclick="sayNamaste()">Say Namaste</button><button onclick="speakNamaste()">🔊 Voice Greeting</button></div>
+  <div class="action-row">
+   <button onclick="sayNamaste()">Say Namaste</button>
+   <button onclick="speakNamaste()">🔊 Voice Greeting</button>
+  </div>
   <h3 id="greetingOutput" aria-live="polite"></h3>
  </div>
 </section>
@@ -140,23 +388,34 @@ footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);colo
 <section id="social">
  <h2 class="section-title">Follow <span>Me</span></h2>
  <div class="grid">
+
   <article class="card social-card">
    <svg class="social-logo" viewBox="0 0 48 48" role="img" aria-label="Instagram logo">
-    <defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ffb347"/><stop offset=".5" stop-color="#e1306c"/><stop offset="1" stop-color="#833ab4"/></linearGradient></defs>
+    <defs>
+     <linearGradient id="ig" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#ffb347"/>
+      <stop offset=".5" stop-color="#e1306c"/>
+      <stop offset="1" stop-color="#833ab4"/>
+     </linearGradient>
+    </defs>
     <rect x="4" y="4" width="40" height="40" rx="12" fill="none" stroke="url(#ig)" stroke-width="4"/>
     <circle cx="24" cy="24" r="9" fill="none" stroke="url(#ig)" stroke-width="4"/>
     <circle cx="36" cy="12" r="2.5" fill="#e1306c"/>
    </svg>
-   <h3>Instagram</h3><p class="muted">Follow me on Instagram!</p>
+   <h3>Instagram</h3>
+   <p class="muted">Follow me on Instagram!</p>
    <a class="btn" href="https://www.instagram.com/himmat_mina01?cplk=dHlsdnJidXlxM3R3" target="_blank" rel="noopener noreferrer">Follow Me</a>
   </article>
+
   <article class="card social-card">
    <svg class="social-logo" viewBox="0 0 48 48" role="img" aria-label="Snapchat logo">
     <path d="M24 4c-7 0-11 5-11 12v7c0 2-2 4-5 5l-3 1c0 2 4 3 7 3 1 4 5 7 12 7s11-3 12-7c3 0 7-1 7-3l-3-1c-3-1-5-3-5-5v-7C35 9 31 4 24 4z" fill="#ffeb00" stroke="#fff" stroke-width="1.5"/>
    </svg>
-   <h3>Snapchat</h3><p class="muted">Add me on Snapchat!</p>
+   <h3>Snapchat</h3>
+   <p class="muted">Add me on Snapchat!</p>
    <a class="btn" href="https://www.snapchat.com/add/himmatt_00?share_id=aoFrrLIu7HA&amp;locale=hi-IN" target="_blank" rel="noopener noreferrer">Add Me</a>
   </article>
+
  </div>
 </section>
 
@@ -167,54 +426,134 @@ footer{text-align:center;padding:28px 10px;border-top:1px solid var(--line);colo
   <a class="btn" href="#social">Connect With Me</a>
  </div>
 </section>
+
 </main>
 
-<footer>© <span id="year"></span> Himmat Meena · Made with HTML, CSS & JavaScript</footer>
+<footer>
+ © <span id="year"></span> Himmat Meena · Made with HTML, CSS & JavaScript
+</footer>
+
 <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
 "use strict";
-document.getElementById("year").textContent=new Date().getFullYear();
 
-function getBadges(){try{return JSON.parse(localStorage.getItem("hmBadges")||"[]")}catch(e){return[]}}
-function unlockBadge(id){
- const list=getBadges();
- if(!list.includes(id)){list.push(id);localStorage.setItem("hmBadges",JSON.stringify(list));showBadges()}
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function getBadges() {
+ try {
+  return JSON.parse(localStorage.getItem("hmBadges") || "[]");
+ } catch(e) {
+  return [];
+ }
 }
-const badgeNames={greeting:"🙏 Namaste Star",voice:"🔊 Voice Explorer",todo:"✅ Task Starter",mystery:"🎁 Mystery Explorer"};
-function showBadges(){
- const list=getBadges();
- document.getElementById("badges").innerHTML=Object.entries(badgeNames).map(([id,name])=>
- `<span class="badge ${list.includes(id)?"":"locked"}">${list.includes(id)?"🏅 ":"🔒 "}${name}</span>`).join("");
+
+function unlockBadge(id) {
+ const list = getBadges();
+
+ if(!list.includes(id)) {
+  list.push(id);
+  localStorage.setItem("hmBadges",JSON.stringify(list));
+  showBadges();
+ }
 }
-function sayNamaste(){
- const name=document.getElementById("visitorName").value.trim();
- document.getElementById("greetingOutput").textContent=name?`नमस्ते ${name}! मेरी वेबसाइट पर आपका स्वागत है।`:"नमस्ते! मेरी वेबसाइट पर आपका स्वागत है।";
+
+const badgeNames = {
+ greeting:"🙏 Namaste Star",
+ voice:"🔊 Voice Explorer",
+ todo:"✅ Task Starter",
+ mystery:"🎁 Mystery Explorer"
+};
+
+function showBadges() {
+ const list = getBadges();
+
+ document.getElementById("badges").innerHTML =
+ Object.entries(badgeNames).map(([id,name]) =>
+ `<span class="badge ${list.includes(id)?"":"locked"}">${list.includes(id)?"🏅 ":"🔒 "}${name}</span>`
+ ).join("");
+}
+
+function sayNamaste() {
+ const name = document.getElementById("visitorName").value.trim();
+
+ document.getElementById("greetingOutput").textContent =
+ name
+ ? `नमस्ते ${name}! मेरी वेबसाइट पर आपका स्वागत है।`
+ : "नमस्ते! मेरी वेबसाइट पर आपका स्वागत है।";
+
  unlockBadge("greeting");
 }
-function speakNamaste(){
- const name=document.getElementById("visitorName").value.trim();
- if(!("speechSynthesis" in window)){alert("Voice is not supported in this browser.");return}
+
+function speakNamaste() {
+ const name = document.getElementById("visitorName").value.trim();
+
+ if(!("speechSynthesis" in window)) {
+  alert("Voice is not supported in this browser.");
+  return;
+ }
+
  speechSynthesis.cancel();
- const msg=new SpeechSynthesisUtterance(name?`Namaste ${name}. Welcome to my website.`:"Namaste! Welcome to my website.");
- msg.lang="hi-IN";speechSynthesis.speak(msg);unlockBadge("voice");
+
+ const msg = new SpeechSynthesisUtterance(
+  name
+  ? `Namaste ${name}. Welcome to my website.`
+  : "Namaste! Welcome to my website."
+ );
+
+ msg.lang = "hi-IN";
+ speechSynthesis.speak(msg);
+ unlockBadge("voice");
 }
-function addTodo(){
- const input=document.getElementById("todoInput"),value=input.value.trim();
- if(!value)return;
- const li=document.createElement("li"),span=document.createElement("span"),done=document.createElement("button"),del=document.createElement("button");
- span.textContent=value+" ";done.textContent="Done";del.textContent="Delete";
- done.onclick=()=>{span.style.textDecoration=span.style.textDecoration?"":"line-through";unlockBadge("todo")};
- del.onclick=()=>li.remove();
+
+function addTodo() {
+ const input = document.getElementById("todoInput");
+ const value = input.value.trim();
+
+ if(!value) return;
+
+ const li = document.createElement("li");
+ const span = document.createElement("span");
+ const done = document.createElement("button");
+ const del = document.createElement("button");
+
+ span.textContent = value + " ";
+ done.textContent = "Done";
+ del.textContent = "Delete";
+
+ done.onclick = () => {
+  span.style.textDecoration =
+   span.style.textDecoration ? "" : "line-through";
+  unlockBadge("todo");
+ };
+
+ del.onclick = () => li.remove();
+
  li.append(span,done,document.createTextNode(" "),del);
- document.getElementById("todoList").append(li);input.value="";unlockBadge("todo");
+
+ document.getElementById("todoList").append(li);
+ input.value = "";
+
+ unlockBadge("todo");
 }
-const surprises=["Keep learning, keep growing! 🌱","Small steps make big progress. 🚀","Believe in your ability to learn. ⭐","Your next idea could be amazing! 💡"];
-function openMystery(){
- document.getElementById("mysteryResult").textContent=surprises[Math.floor(Math.random()*surprises.length)];
+
+const surprises = [
+ "Keep learning, keep growing! 🌱",
+ "Small steps make big progress. 🚀",
+ "Believe in your ability to learn. ⭐",
+ "Your next idea could be amazing! 💡"
+];
+
+function openMystery() {
+ document.getElementById("mysteryResult").textContent =
+ surprises[Math.floor(Math.random()*surprises.length)];
+
  unlockBadge("mystery");
 }
+
 showBadges();
 </script>
+
 </body>
-                                                                                                                                  </html>
+                                                   </html>
+    
